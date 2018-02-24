@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "My CLI Data Gem Experience "
-date:       2018-02-24 22:10:35 +0000
+date:       2018-02-24 17:10:36 -0500
 permalink:  my_cli_data_gem_experience
 ---
 
@@ -20,8 +20,8 @@ permalink:  my_cli_data_gem_experience
 		 
 		 With everything functioning properly, the next step was to add the flexibility of allowing the user to choose how many songs they wanted to see. To accomplish this I added a class variable @@song_number to the CLI class. When the user is prompted by the CLI to enter the number of songs they'd like to see, that number is stored in the class variable @@song_number. Then, over in the SongScraper class, at the point at which the Nokogiri XML elements are passed to the Song class to be born as objects, I added a bit of conditional logic. When the SongScraper #make_songs method iterates over the collection returned by #scrape_songs, the Song class' #create_songs is called on each element. With the new condition, #create_songs is only called if the length of the Song class variable @@all_songs (an array of all songs created) is less than or equal to the CLI class variable @@song_number, which stores the number entered by the user. This was a better implementation than my first which was to use a counter variable. Since @@all_songs grows in length with every song created, it was easy enough to use it's length against the user input for the condition deciding how many songs to be created. 
 		 
-		 The last step was to add the option for the user to run the program again before exiting. This required only a couple of simple steps. The first being to add an if/elsif statement in the #goodbye method in the CLI class. The user is prompted to answer whether or not they want to try a different number of songs. If the input is 'y' or 'yes' the #call method is invoked. The second step was to invoke #clear on the @@all_songs array at the beginning of the #call method. Otherwise, the previously created song objects would still be in the @@all_song array.
+		 The last step was to add the option for the user to run the program again before exiting. This required only a couple of simple steps. The first being to add an if/elsif statement in the #goodbye method in the CLI class. The user is prompted to answer whether or not they want to try a different number of songs. If the input is 'y' or 'yes' the #call method is invoked. The second step was to invoke #clear on the @@all_songs array at the beginning of the #call method. Otherwise, the previously created song objects would still be in the @@all_songs array.
 		 
-		 After finishing the project, I published my first Gem to rubygems.com! This took a few attempts and a few google searches. I learn that removing the if/else statement from the gemspec file was necessary. I also needed to run a gem build as well as download the rubygems api. When that was completed, running the gem push command published my gem to rubygems. 
+		 After finishing the project, I published my first Gem to rubygems.com! This took a few attempts and a few google searches. I learned that removing the if/else statement from the gemspec file was necessary. I also needed to run a gem build as well as download the rubygems api. When that was completed, running the gem push command published my gem to rubygems. 
 		 
 		 Ultimately, my experience with this project was great. It was challenging and rewarding. I am extremely happy to have completed it and look forward to learning more. 
