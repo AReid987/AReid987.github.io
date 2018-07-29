@@ -1,14 +1,15 @@
 ---
 layout: post
 title:      "JavaScript : Variable Scope, Hoisting, and This"
-date:       2018-07-29 04:35:45 +0000
+date:       2018-07-29 00:35:45 -0400
 permalink:  javascript_variable_scope_hoisting_and_this
 ---
 
 
 For a JavaScript developer, variable scope and hoisting are very important concepts to understand. However, they are not exactly the easiest concepts to learn at first. In this post, I'll cover these two concepts, along with an explanation of the `this` keyword in JS.
 
-# Scope 
+ **Scope**
+ 
 **var keyword**
 
 Let's begin with scope - specifically using the var keyword. At a high level view, scope is essentially the context in which a variable exists. Well, what does that even mean? As Meek Mill puts it : "There's levels to this ...". At the highest level, variables are in the global scope. At any subsequent level, variables are in local scope. Basically, a variable that is declared outside of a function will be in global scope, and a variable declared inside of a function has local scope. 
